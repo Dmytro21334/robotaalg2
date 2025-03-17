@@ -12,3 +12,4 @@ public class QuickSortTest {
         assertArrayEquals(expectArray, quickSortAlg.getArray());
     }
 }
+
