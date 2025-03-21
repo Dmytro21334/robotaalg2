@@ -22,7 +22,7 @@ public class QuickSort<T extends Comparable<T>> {
 
         int i = first - 1;
         for (int j = first; j < last; j++) {
-            if (array[j].compareTo(pivotElement) <= 0) { // Змінили на <= 0 для сортування за зростанням
+            if (array[j].compareTo(pivotElement) <= 0) { 
                 i++;
                 if (i != j) {
                     swap(i, j);
