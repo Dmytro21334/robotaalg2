@@ -9,19 +9,19 @@ public class QuickSortTimingComparison {
         long start = System.nanoTime();
         sorterLast.quickSortArray(0, array.length - 1);
         long end = System.nanoTime();
-        System.out.println("Time with last element as pivot: " + (end - start) + " ns");
+        System.out.println("Час із останнім елементом як опорою: " + (end - start) + " ns");
 
         QuickSort<Integer> sorterMiddle = new QuickSort<>(array.clone());
         start = System.nanoTime();
         sorterMiddle.quickSortArray(0, array.length - 1);
         end = System.nanoTime();
-        System.out.println("Time with middle element as pivot: " + (end - start) + " ns");
+        System.out.println("Час із середнім елементом як опорою: " + (end - start) + " ns");
 
         QuickSort<Integer> sorterRandom = new QuickSort<>(array.clone());
         start = System.nanoTime();
         sorterRandom.quickSortArray(0, array.length - 1);
         end = System.nanoTime();
-        System.out.println("Time with random element as pivot: " + (end - start) + " ns");
+        System.out.println("Час із випадковим елементом як опорою: " + (end - start) + " ns");
     }
 
     private static Integer[] generateRandomArray() {
