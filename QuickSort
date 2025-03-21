@@ -41,8 +41,3 @@ public class QuickSort<T extends Comparable<T>> {
         array[j] = firstElement;
     }
 }
-
-        array[i] = array[j];
-        array[j] = firstElement;
-    }
-}
