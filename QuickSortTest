@@ -4,11 +4,20 @@ import static org.junit.Assert.assertArrayEquals;
 public class QuickSortTest {
 
     @Test
-    public void testQuicksort() {
-        Integer[] sourceArray = new Integer[]{-5, 4, 10, 2, 1, 8, -5, 0};
-        Integer[] expectArray = new Integer[]{-5, -5, 0, 1, 2, 4, 8, 10};
-        QuickSort<Integer> quickSortAlg = new QuickSort<>(sourceArray);
-        quickSortAlg.quickSortArray(0, sourceArray.length - 1);
-        assertArrayEquals(expectArray, quickSortAlg.getArray());
+    public void testAscendingSortWithLastPivot() {
+        Integer[] input = {-5, 4, 10, 2, 1, 8, -5, 0};
+        Integer[] expected = {-5, -5, 0, 1, 2, 4, 8, 10};
+        QuickSort<Integer> sorter = new QuickSort<>(input, false, false, false);
+        sorter.quickSortArray(0, input.length - 1);
+        assertArrayEquals(expected, sorter.getArray());
+    }
+
+    @Test
+    public void testDescendingSortWithLastPivot() {
+        Integer[] input = {-5, 4, 10, 2, 1, 8, -5, 0};
+        Integer[] expected = {10, 8, 4, 2, 1, 0, -5, -5};
+        QuickSort<Integer> sorter = new QuickSort<>(input, true, false, false);
+        sorter.quickSortArray(0, input.length - 1);
+        assertArrayEquals(expected, sorter.getArray());
     }
 }
