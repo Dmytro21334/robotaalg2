@@ -5,23 +5,20 @@ public class QuickSortTimingComparison {
     public static void main(String[] args) {
         Integer[] array = generateRandomArray();
 
-        QuickSort<Integer> sorterLast = new QuickSort<>(array.clone());
+        measure("Останній елемент", array, false, false);
+        measure("Середній елемент", array, true, false);
+        measure("Випадковий елемент", array, false, true);
+    }
+
+    private static void measure(String label, Integer[] baseArray, boolean middle, boolean random) {
+        Integer[] copy = baseArray.clone();
+        QuickSort<Integer> sorter = new QuickSort<>(copy, false, middle, random);
+
         long start = System.nanoTime();
-        sorterLast.quickSortArray(0, array.length - 1);
+        sorter.quickSortArray(0, copy.length - 1);
         long end = System.nanoTime();
-        System.out.println("Час із останнім елементом як опорою: " + (end - start) + " ns");
 
-        QuickSort<Integer> sorterMiddle = new QuickSort<>(array.clone());
-        start = System.nanoTime();
-        sorterMiddle.quickSortArray(0, array.length - 1);
-        end = System.nanoTime();
-        System.out.println("Час із середнім елементом як опорою: " + (end - start) + " ns");
-
-        QuickSort<Integer> sorterRandom = new QuickSort<>(array.clone());
-        start = System.nanoTime();
-        sorterRandom.quickSortArray(0, array.length - 1);
-        end = System.nanoTime();
-        System.out.println("Час із випадковим елементом як опорою: " + (end - start) + " ns");
+        System.out.println(label + ": " + (end - start) + " нс");
     }
 
     private static Integer[] generateRandomArray() {
